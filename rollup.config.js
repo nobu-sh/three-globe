@@ -4,7 +4,7 @@ import babel from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
 import { terser } from "rollup-plugin-terser";
 import dts from 'rollup-plugin-dts';
-import { name, homepage, version, dependencies, peerDependencies } from './package.json';
+import { bundleName as name, homepage, version, dependencies, peerDependencies } from './package.json';
 
 const umdConf = {
   format: 'umd',
