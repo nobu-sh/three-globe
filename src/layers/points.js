@@ -8,7 +8,8 @@ import {
   MeshBasicMaterial,
   MeshLambertMaterial,
   Object3D,
-  Vector3
+  Vector3,
+  Vector
 } from 'three';
 
 const THREE = window.THREE
@@ -47,6 +48,7 @@ const applyMatrix4Fn = new THREE.BufferGeometry().applyMatrix4 ? 'applyMatrix4' 
 
 export default Kapsule({
   props: {
+    points: {  default: [], triggerUpdate: false },
     pointsData: { default: [] },
     pointLat: { default: 'lat' },
     pointLng: { default: 'lng' },
@@ -73,6 +75,7 @@ export default Kapsule({
     const altitudeAccessor = accessorFn(state.pointAltitude);
     const radiusAccessor = accessorFn(state.pointRadius);
     const colorAccessor = accessorFn(state.pointColor);
+    const tooltipAccessor = accessorFn(state.pointTooltip)
 
     // shared geometry
     const pointGeometry = new THREE.CylinderBufferGeometry(1, 1, 1, state.pointResolution);
@@ -132,6 +135,7 @@ export default Kapsule({
       const obj = new THREE.Mesh(pointGeometry);
 
       obj.__globeObjType = 'point'; // Add object type
+      state.points.push(obj)
       return obj;
     }
 

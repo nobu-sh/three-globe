@@ -1,4 +1,4 @@
-import { Object3D, Vector2, Material } from 'three';
+import { Object3D, Vector2, Material, Mesh, CylinderBufferGeometry } from 'three';
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type ObjAccessor<T> = Accessor<object, T>;
@@ -60,6 +60,7 @@ export declare class ThreeGlobeGeneric<ChainableInstance> extends Object3D {
   pointsMerge(merge: boolean): ChainableInstance;
   pointsTransitionDuration(): number;
   pointsTransitionDuration(durationMs: number): ChainableInstance;
+  points(): Mesh<CylinderBufferGeometry, Material | Material[]>[]
 
   // Arcs layer
   arcsData(): object[];

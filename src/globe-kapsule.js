@@ -67,6 +67,7 @@ const linkedGlobeLayerMethods = Object.assign(...[
 
 const bindPointsLayer = linkKapsule('pointsLayer', PointsLayerKapsule);
 const linkedPointsLayerProps = Object.assign(...[
+  'points',
   'pointsData',
   'pointLat',
   'pointLng',
@@ -75,7 +76,7 @@ const linkedPointsLayerProps = Object.assign(...[
   'pointRadius',
   'pointResolution',
   'pointsMerge',
-  'pointsTransitionDuration'
+  'pointsTransitionDuration',
 ].map(p => ({ [p]: bindPointsLayer.linkProp(p)})));
 
 const bindArcsLayer = linkKapsule('arcsLayer', ArcsLayerKapsule);
